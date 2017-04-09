@@ -10,6 +10,8 @@ import sys
 import argparse
 from faker import Faker
 from random import randrange
+from tzlocal import get_localzone
+local = get_localzone()
 
 #todo:
 # allow writing different patterns (Common Log, Apache Error log etc)
@@ -84,12 +86,14 @@ while (flag):
 
 	ip = faker.ipv4()
 	dt = otime.strftime('%d/%b/%Y:%H:%M:%S')
-	tz = datetime.datetime.now(pytz.timezone('Europe/Berlin')).strftime('%z')
+
+	tz = datetime.datetime.now(local).strftime('%z')
+  
 	vrb = numpy.random.choice(verb,p=[0.6,0.1,0.1,0.2])
 
 	uri = random.choice(resources)
 	if uri.find("apps")>0:
-		uri += `random.randint(1000,10000)`
+		uri += 'random.randint(1000,10000)'
 
 	resp = numpy.random.choice(response,p=[0.9,0.04,0.02,0.04])
 	byt = int(random.gauss(5000,50))
