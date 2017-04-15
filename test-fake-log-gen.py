@@ -71,7 +71,7 @@ while (flag):
 		increment = datetime.timedelta(seconds=args.sleep)
 	else:
 		increment = datetime.timedelta(seconds=random.randint(30, 300))
-	otime += increment
+	otime -= increment
 
 	ipv4 = fake.ipv4()
 	ipv6 = fake.ipv6()
@@ -87,7 +87,7 @@ while (flag):
 	text = fake.text(max_nb_chars=200)
   
   
-	dt = otime.strftime('%d/%b/%Y:%H:%M:%S')
+	dt = otime.strftime("%Y-%m-%dT%H:%M:%S")
 	tz = datetime.datetime.now(local).strftime('%z')
   
 	f.write('time=%s|IPv4=%s|IPv6=%s|url=%s|uri=%s|mac_address=%s|user_agent=%s|email=%s|user_name=%s|name=%s|int=%s|color=%s|text=%s|\n' % (dt,ipv4,ipv6,url,uri,mac_address,user_agent,email,user_name,name,int_number,color,text))
