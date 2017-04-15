@@ -65,14 +65,6 @@ for case in switch(output_type):
 	if case():
 		f = sys.stdout
 
-response=["200","404","500","301"]
-
-verb=["GET","POST","DELETE","PUT"]
-
-resources=["/list","/wp-content","/wp-admin","/explore","/search/tag/list","/app/main/posts","/posts/posts/explore","/apps/cart.jsp?appID="]
-
-ualist = [fake.firefox, fake.chrome, fake.safari, fake.internet_explorer, fake.opera]
-
 flag = True
 while (flag):
 	if args.sleep:
