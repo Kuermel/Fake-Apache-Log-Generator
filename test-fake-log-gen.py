@@ -90,7 +90,7 @@ while (flag):
 	dt = otime.strftime("%Y-%m-%dT%H:%M:%S")
 	tz = datetime.datetime.now(local).strftime('%z')
   
-	f.write('time=%s|IPv4=%s|IPv6=%s|url=%s|uri=%s|mac_address=%s|user_agent=%s|email=%s|user_name=%s|name=%s|int=%s|color=%s|text=%s|\n' % (dt,ipv4,ipv6,url,uri,mac_address,user_agent,email,user_name,name,int_number,color,text))
+	f.write(('time=%s|IPv4=%s|IPv6=%s|url=%s|uri=%s|mac_address=%s|user_agent=%s|email=%s|user_name=%s|name=%s|int=%s|color=%s|text=%s|\n' % (dt,ipv4,ipv6,url,uri,mac_address,user_agent,email,user_name,name,int_number,color,text)).encode('utf8'))
 
 	log_lines = log_lines - 1
 	flag = False if log_lines == 0 else True
